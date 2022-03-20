@@ -1,0 +1,86 @@
+.link-container{
+    width: var(--container-width);
+    margin-bottom: 10px;
+}
+
+.link-container .input-container{
+    position: relative;
+    width: 100%;
+}
+.link-container .input-container input{
+    width: 100%;
+    border: 2px dashed var(--primary-color-bold);
+    border-radius: 3px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: var(--primary-bg-color);
+}
+.darkTheme .link-container .input-container input{
+    background-color: var(--dark-theme-bg-1);
+    color: #ffffff;
+}
+.link-container p.expire {
+    opacity: 0.7;
+    text-align: center;
+}
+.input-container .icon{
+    position: absolute;
+    height: 25px;
+    width: 30px;
+
+    right: 2%;
+    top: 10px;
+    background-color: var(--primary-bg-color);
+    cursor: pointer;
+}
+.darkTheme .input-container .icon{
+    background-color: var(--dark-theme-bg-1);
+    color: #ffffff;
+}
+.icon-container-share{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.icon-container-share .inner-container-share{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+}
+.icon-container-share .share-icon{
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+}
+
+.icon-container-share .share-icon:hover{
+    height: 40px;
+    width: 40px;
+}
+
+.sms-icon{
+    color:#25D366;
+}
+
+.gmail-icon{
+    color: #EA4335; 
+}
+.telegram-icon{
+    color: #229ED9;
+}
+
+@media only screen and (max-width: 600px ){
+    .link-container{
+        width: 90%;
+    }
+   
+ 
+   
+  }

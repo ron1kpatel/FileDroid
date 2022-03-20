@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-bg-color: #ffe1e0;
+    --border-color: #180100;
+}
+body,html{
+    font-family: syste-ui;
+    background-color: var(--main-bg-color);
+    height: 100vh;
+}
+
+.drop-zone{
+    width: 500px;
+    min-height: 200px;
+    border: 2px dashed var(--border-color);
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+:root{
+  --primary-color: #ff4c30;
+  --primary-bg-color: #fffafa;
+  --primary-color-bold: #cf000f;
+  --primary-color-lite: #ec644b;
+  --border-color: #0288d147;
+  --dark-theme-bg-1: #1c1c27;
+  --dark-theme-bg-2: #28293d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.darkTheme{
+  background-color: var(--dark-theme-bg-1);
+}
+.App {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Logo style start here */
+.brand{
+  
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  text-shadow: 0px 15px 15px #0000002e;
+  cursor: pointer;
+}
+
+.brand .logo-main{
+  color: var(--primary-color);
+  font-family: 'Righteous', cursive;
+  font-weight: 550;
+  margin-bottom: 0;
+
+}
+.brand h4{
+  margin-top: 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Toggle Button */
+.darkModeToggle_wrapper{
+  position: absolute;
+  top: 5%;
+  right: 2%;
+}
+.dark-mode-icon, .dark-mode-icon-fill{
+  height: 35px;
+  width: 35px;
+  color: #464747;
+}
+.darkTheme .dark-mode-icon, .dark-mode-icon-fill{
+  color: #fff;
+}
+
+.darkModeToggle_button{
+  background-color: #fff;
+  border: rgb(202, 200, 200) solid 1px;
+  border-radius: 10px;
+  padding: 5px 7px;
+}
+.darkTheme .darkModeToggle_button {
+  background-color: var(--dark-theme-bg-2);
+  color: #fff;
+}
+.darkModeToggle_button:hover{
+  cursor: pointer;
+}
+
+
+@keyframes text {
+  0%{
+    opacity: 0;
+    font-size: 0px;
+  }
+  40%{
+    opacity: 0.4;
+    font-size: 4px;
+  }
+  60%{
+    opacity: 0.6;
+    font-size: 8px;
+  }
+  100%{
+    opacity: 1;
+    font-size: 16px;
+  }
+ 
+}
+/* Toggle Button end here */
+
+.notFound_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.notFound_wrapper .error-heading-1{
+  color: red;
+}
+
+.notFound_wrapper .btn-error{
+  padding: 10px 20px;
+  background-color: red;
+  cursor: pointer;
+  transition: background-color 400ms linear;
+}
+.notFound_wrapper .btn-error:hover{
+  background-color: #cf000f;
+}

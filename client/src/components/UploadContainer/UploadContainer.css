@@ -1,0 +1,163 @@
+:root {
+  --container-width: 500px;
+  --primary-color-blue: #03a9f4;
+}
+/* Utility */
+.btn {
+  border: none;
+  outline: none;
+  padding: 8px 40px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4%;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  transition: background-color 400ms;
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-bold);
+  cursor: pointer;
+}
+.upload-container {
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0px 20px 20px #0000002e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.darkTheme .upload-container {
+  background-color: var(--dark-theme-bg-2);
+  color: #fff;
+}
+.drop-zone {
+  width: var(--container-width);
+  min-height: 200px;
+  border: 2px dashed var(--primary-color-bold);
+  border-radius: 10px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  transition: all 200ms ease-in-out;
+}
+.dragged.drop-zone {
+  background-color: var(--dark-theme-bg-1);
+  border-color: var(--primary-color-bold);
+}
+.icon-container {
+  width: 75px;
+  height: 100px;
+  position: relative;
+  /* border: 1px solid red;  */
+}
+.icon-container img {
+  width: 75px;
+  position: absolute;
+  left: 0;
+  transition: transform 250ms ease-in-out;
+
+  transform-origin: bottom;
+}
+
+.icon-container .center {
+  z-index: 2;
+}
+.icon-container .right,
+.icon-container .left {
+  filter: grayscale(0.2);
+  transform: scale(0.9);
+}
+.dragged .icon-container .right {
+  transform: rotate(10deg) translateX(10px) scale(0.9);
+}
+
+.dragged .icon-container .left {
+  transform: rotate(-10deg) translateX(-10px) scale(0.9);
+}
+
+.dragged .icon-container .center {
+  transform: translateY(-5px);
+}
+
+#fileinput {
+  display: none;
+}
+.browseBtn {
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.progress-container {
+  width: var(--container-width);
+  height: 70px;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  position: relative;
+  display: none;
+}
+
+.progress-container .bg-progress {
+  background-color: var(--light-red);
+  width: 0%;
+  height: 100%;
+  transform-origin: left;
+  /* transform: scaleX(0); */
+  border-radius: 2%;
+  transition: width 300ms linear;
+  /* position: absolute; */
+}
+
+.progress-container .inner-container {
+  position: absolute;
+  margin: 10px 15px;
+  width: calc(100% - 30px);
+}
+
+.progress-container .inner-container .percent-container {
+  font-size: 13px;
+  margin: 5px;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 300ms linear;
+}
+
+.toLargeWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+.toLargeWrapper .toLarge-error-icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 8px;
+  color: red;
+}
+@media only screen and (max-width: 600px) {
+  .upload-container {
+    width: 90vw;
+  }
+  .drop-zone {
+    width: 90%;
+  }
+  .progress-container{
+     width: 90%;
+   }
+}
