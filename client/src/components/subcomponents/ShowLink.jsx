@@ -13,12 +13,22 @@ function ShowLink({ data }) {
   const [openShareViaModal, setopenShareViaModal] = useState(false);
   const [modalOption, setModalOption] = useState({});
   function handleCopyBtnClick(e) {
-    navigator.clipboard.writeText(this.data.file);
-    toast.success("Copied", {
-      position: toast.POSITION.BOTTOM_CENTER,
-      closeButton: false,
-      autoClose: 0.2,
-    });
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(data.file).then(()=>{
+        toast.success("Copied", {
+          position: toast.POSITION.BOTTOM_CENTER,
+          closeButton: false,
+          autoClose: 0.2,
+        });
+      }).catch((err)=> {
+        toast.error("You have to manually Copy Link", {
+          position: toast.POSITION.BOTTOM_CENTER,
+          closeButton: false,
+          autoClose: 0.2,
+        })
+      });
+    }
+    
   }
 
   function handleGmailClick() {

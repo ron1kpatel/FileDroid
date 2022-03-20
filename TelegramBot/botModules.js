@@ -1,4 +1,6 @@
 const File = require("../models/file");
+const { getDateMonthYear} = require('../services/dateService')
+const Admin = require('../models/admin')
 require("dotenv").config();
 const fetch = require("node-fetch");
 const connectDB = require("../config/db");
@@ -44,7 +46,7 @@ const uploadPhoto = async (ctx) => {
         `);
       }
     } else {
-        ctx.reply(someThingWrong)
+      ctx.reply(someThingWrong);
     }
   } catch (error) {
     ctx.reply(someThingWrong);
@@ -80,12 +82,12 @@ const uploadDocument = async (ctx) => {
   }
 };
 const uploadVideo = async (ctx) => {
- ctx.replyWithHTML(
-     `
+  ctx.replyWithHTML(
+    `
         <b>Sorry, Sharing Video is under development!</b>\n
         It will be availble soon!
      `
- )
+  );
 };
 
 // To save File Metdata to Mongo
@@ -104,6 +106,32 @@ async function uploadFile(
     size: fileSize,
   });
   if (uploadStatus) {
+    try {
+      const adminRes = await Admin.findOne({onDate: getDateMonthYear()});
+      //If Date is already there
+      if(adminRes){
+        console.log("Already There!");
+        const updateAdmin = {
+          totalTelegramSharedCount: adminRes.totalTelegramSharedCount + 1,
+          totalTelegramSharedSize: adminRes.totalTelegramSharedSize + (fileSize / 1024)
+        }
+        const updateAdminRes =  await Admin.updateOne({onDate: getDateMonthYear()}, updateAdmin);
+      }else{
+        const adminCrateRes = await Admin.create({
+          onDate: getDateMonthYear(),
+          totalWebSharedCount: 0,
+          totalWenSharedSize: 0,
+          totalTelegramSharedCount: 1,
+          totalTelegramSharedSize: fileSize / 1024
+        })
+        if(!adminCrateRes){
+          console.error(`Database Error -> Error while creating Admin`)
+        }
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
     return uploadStatus;
   }
   if (!uploadStatus) {
@@ -114,14 +142,19 @@ async function getDownloadUrl(file_id) {
   const res = await fetch(
     `https://api.telegram.org/bot${process.env.BOT_TOKEN}/getFile?file_id=${file_id}`
   );
-
   const data = await res.json();
- const filePath = data.result.file_path;
+  if (!data.result) {
+    return false;
+  }
+  const filePath = data.result.file_path;
   if (filePath) {
     const downloadUrl = `https://api.telegram.org/file/bot${process.env.BOT_TOKEN}/${filePath}`;
     return downloadUrl;
   }
   return false;
+}
+async function updateDatabaseAdmin(file_size){
+  console.log(fileSize)
 }
 
 module.exports.uploadPhoto = uploadPhoto;
