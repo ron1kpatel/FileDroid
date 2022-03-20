@@ -110,7 +110,7 @@ async function uploadFile(
       const adminRes = await Admin.findOne({onDate: getDateMonthYear()});
       //If Date is already there
       if(adminRes){
-        console.log("Already There!");
+        
         const updateAdmin = {
           totalTelegramSharedCount: adminRes.totalTelegramSharedCount + 1,
           totalTelegramSharedSize: adminRes.totalTelegramSharedSize + (fileSize / 1024)
