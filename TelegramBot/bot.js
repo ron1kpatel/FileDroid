@@ -2,8 +2,8 @@ const { Telegraf } = require('telegraf')
 const botModules = require('./botModules');
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
-bot.start((ctx) => ctx.reply('Welcome'))
-bot.help((ctx) => ctx.reply('Upload your file from file section.'))
+bot.start((ctx) => ctx.replyWithHTML('Welcome To FileDroid!\n Upload your files and get Download Link!'))
+bot.help((ctx) => ctx.reply('Just upload your File and  get Download Link!'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 bot.hears('hi', 'hey', (ctx) => ctx.reply('Hey there'))
 bot.use(async (ctx)=> {
