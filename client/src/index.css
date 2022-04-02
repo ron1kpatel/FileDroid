@@ -2,6 +2,7 @@
 :root{
   --primary-color: #ff4c30;
   --primary-bg-color: #fffafa;
+  --primary-bg-dragged-color: #ffe2e2;
   --primary-color-bold: #cf000f;
   --primary-color-lite: #ec644b;
   --border-color: #0288d147;

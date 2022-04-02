@@ -48,6 +48,11 @@
   transition: all 200ms ease-in-out;
 }
 .dragged.drop-zone {
+  background-color: var(--primary-bg-dragged-color);
+  border-color: var(--primary-color-bold);
+}
+
+.darkTheme .dragged.drop-zone {
   background-color: var(--dark-theme-bg-1);
   border-color: var(--primary-color-bold);
 }
