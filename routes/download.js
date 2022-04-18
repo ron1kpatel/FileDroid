@@ -14,7 +14,7 @@ router.get('/:ufid', async(req, res)=> {
 
         }
         const filepath = `${__dirname}/../${file.path}`;
-        res.download(filepath);
+        res.download(filepath)
     }
 })
 
