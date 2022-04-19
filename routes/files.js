@@ -78,7 +78,7 @@ router.post("/", (req, res) => {
     }
     return res.json({
       success: true,
-      file: `${req.protocol}://${req.get('host')}/files/download/${respones.ufid}`,
+      file: `${req.protocol}://${req.get('host')}/files/downlooad/${respones.ufid}`,
       ufid: respones.ufid,
     });
   });
