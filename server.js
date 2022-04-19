@@ -29,6 +29,7 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '/client/build/' , '/index.html'));
 });
 app.listen(PORT, ()=> {
-    console.log(`Server is running on ${PORT}`);
+   
+     console.log(`[${HOST}:${PORT}] Server is running`)
 })
 
