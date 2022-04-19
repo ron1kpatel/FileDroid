@@ -19,7 +19,7 @@ router.get("/:ufid", async (req, res) => {
       ufid: file.ufid,
       filename: file.filename,
       filesize: file.size,
-      downloadLink: `${req.protocol}://${req.get('host')}/api/files/download/${file.ufid}`,
+      downloadLink: `${req.protocol}://${process.env.HOST_URL}/api/files/download/${file.ufid}`,
     });
   } catch (error) {
   

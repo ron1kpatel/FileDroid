@@ -35,7 +35,7 @@ const uploadPhoto = async (ctx) => {
         image.file_size
       );
       if (uploadStatus) {
-        const link = `${process.env.APP_BASE_URL}/files/download/${uploadStatus.ufid}`;
+        const link = `http://${process.env.HOST_URL}/files/download/${uploadStatus.ufid}`;
         await ctx.replyWithHTML(
           `
              <b>✅Download Link Is Ready</b>
@@ -70,7 +70,7 @@ const uploadDocument = async (ctx) => {
 
   if (uploadStatus) {
     // const link = `${process.env.APP_BASE_URL}/files/download/${uploadStatus.ufid}`
-    const link = `${process.env.APP_BASE_URL}/files/download/${uploadStatus.ufid}`;
+    const link = `http://${process.env.HOST_URL}/files/download/${uploadStatus.ufid}`;
     await ctx.replyWithHTML(`
     <b>✅Download Link Is Ready</b>
     `);

@@ -62,7 +62,7 @@ router.post("/email", async (req, res) => {
       text: `${message}`,
       html: require("../services/emailTemplate")({
         message,
-        downloadLink: `${req.protocol}://${req.get('host')}/files/download/${file.ufid}`,
+        downloadLink: `${req.protocol}://${process.env.HOST_URL}/files/download/${file.ufid}`,
         size: parseInt(file.size / 1000) + "KB",
         expires: "24 Hours",
       }),

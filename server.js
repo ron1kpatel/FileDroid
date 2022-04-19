@@ -31,6 +31,6 @@ app.get('/*', function(req, res) {
 
 app.listen(PORT, ()=> {
    
-     console.log(${PORT}] Server is running`)
+     console.log(`${PORT}] Server is running`)
 })
 
