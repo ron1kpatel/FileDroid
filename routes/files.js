@@ -76,7 +76,7 @@ router.post("/", (req, res) => {
         }
       }
     }
-    console.log(`${req.protocol}://${req.get('host')}/files/download/${respones.ufid}`);
+
     return res.json({
       success: true,
       file: `${req.protocol}://${process.env.HOST_URL}/files/download/${respones.ufid}`,
